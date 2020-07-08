@@ -70,7 +70,6 @@
     <Compile Include="Rules\RemovableStorageDevicesDenyExecute.cs" />
     <Compile Include="Rules\NoAutoRun.cs" />
     <Compile Include="Rules\NoDriveTypeAutoRun.cs" />
-    <Compile Include="Rules\ScreenSaverIsSecure.cs" />
     <Compile Include="RegistryRule.cs" />
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
