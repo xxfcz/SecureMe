@@ -64,6 +64,7 @@
     <Compile Include="GroupPolicyRule.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RuleList.cs" />
     <Compile Include="Rules\IeHistoryDaysToKeep.cs" />
     <Compile Include="Rules\WUServer.cs" />
     <Compile Include="Rules\RemovableStorageDevicesDenyExecute.cs" />

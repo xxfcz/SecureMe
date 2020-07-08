@@ -12,18 +12,12 @@ namespace Securit
 {
     public partial class MainForm : Form
     {
-        private List<IRule> _rules = new List<IRule>();
+        private RuleList _rules = new RuleList();
 
         public MainForm()
         {
             InitializeComponent();
 
-            _rules.Add(new ScreenSaverIsSecure());
-            _rules.Add(new IeHistoryDaysToKeep());
-            _rules.Add(new NoDriveTypeAutoRun());
-            _rules.Add(new RemovableStorageDevicesDenyExecute());
-            _rules.Add(new GroupPolicyRule("设置自动运行的默认行为", @"HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer!NoAutoRun", "1", Microsoft.Win32.RegistryValueKind.DWord));
-            _rules.Add(new WUServer());
         }
 
         private void btnScan_Click(object sender, EventArgs e)

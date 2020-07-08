@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Securit.Rules
+namespace Securit
 {
     public class GroupPolicyRule: IRule
     {
