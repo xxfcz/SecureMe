@@ -12,7 +12,7 @@ namespace SecureMe
         public readonly string Path; // = @"HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer!NoAutoRun";
         public readonly string Value; // "1";
 
-        public GroupPolicyRule(string title, string path, string value, Microsoft.Win32.RegistryValueKind kind)
+        public GroupPolicyRule(string title, string path, string value, Microsoft.Win32.RegistryValueKind kind = Microsoft.Win32.RegistryValueKind.DWord)
         {
             Title = title;
             Path = path;
