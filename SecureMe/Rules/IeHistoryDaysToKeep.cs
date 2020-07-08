@@ -6,7 +6,7 @@ using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Securit
+namespace SecureMe
 {
     class IeHistoryDaysToKeep : IRule
     {

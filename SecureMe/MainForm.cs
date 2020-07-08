@@ -1,4 +1,4 @@
-﻿using Securit.Rules;
+﻿using SecureMe.Rules;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Securit
+namespace SecureMe
 {
     public partial class MainForm : Form
     {

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Runtime.Remoting.Messaging;
 using System.Text;
 
-namespace Securit
+namespace SecureMe
 {
     public class RegistryRule<T> : IRule
     {

@@ -1,4 +1,4 @@
-﻿namespace Securit
+﻿namespace SecureMe
 {
     partial class MainForm
     {
