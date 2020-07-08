@@ -17,9 +17,9 @@ namespace SecureMe
             _rules.Add(new RegistryRule<string>("屏保：在恢复时显示登录屏幕", Registry.CurrentUser, @"Control Panel\Desktop", "ScreenSaverIsSecure", "1"));
             _rules.Add(new RegistryRule<int>("IE设置：在历史记录中保存网页的天数为180", Registry.CurrentUser,
                 @"Software\Microsoft\Windows\CurrentVersion\Internet Settings\Url History", "DaysToKeep", 180));
-            _rules.Add(new NoDriveTypeAutoRun());
+            _rules.Add(new GroupPolicyRule("关闭自动播放", @"HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer!NoDriveTypeAutoRun", "255", RegistryValueKind.DWord));
             _rules.Add(new RemovableStorageDevicesDenyExecute());
-            _rules.Add(new GroupPolicyRule("设置自动运行的默认行为", @"HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer!NoAutoRun", "1", Microsoft.Win32.RegistryValueKind.DWord));
+            _rules.Add(new GroupPolicyRule("设置自动运行的默认行为", @"HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer!NoAutoRun", "1", RegistryValueKind.DWord));
             _rules.Add(new WUServer());
 
         }
