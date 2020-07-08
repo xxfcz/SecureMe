@@ -7,13 +7,14 @@ using System.Text;
 
 namespace Securit
 {
-    public class RegistryRule: IRule
+    public class RegistryRule<T> : IRule
     {
         private readonly string _title;
         private readonly RegistryKey _root = Registry.CurrentUser;
         private readonly string _path;
         private readonly string _name;
-        private readonly string _value;
+        private readonly T _value;
+        private readonly RegistryValueKind _vk;
 
         private bool _effective;
 
@@ -21,19 +22,32 @@ namespace Securit
 
         bool IRule.Effective => _effective;
 
-        public RegistryRule(string title, RegistryKey root, string path, string name, string value)
+        public RegistryRule(string title, RegistryKey root, string path, string name, T value)
         {
             _title = title;
             _root = root;
             _path = path;
             _name = name;
             _value = value;
+
+            if (typeof(T) == typeof(int))
+            {
+                _vk = RegistryValueKind.DWord;
+            }
+            else if (typeof(T) == typeof(string))
+            {
+                _vk = RegistryValueKind.String;
+            }
+            else
+            {
+                _vk = RegistryValueKind.None;
+            }
         }
 
         void IRule.Apply()
         {
             RegistryKey regKey = _root.OpenSubKey(_path, true);
-            regKey.SetValue(_name, _value, RegistryValueKind.String);
+            regKey.SetValue(_name, _value, _vk);
             _effective = true;
         }
 
@@ -46,7 +60,7 @@ namespace Securit
                 throw new Exception(string.Format(@" 不包含键：{0}\{1}\{2}", _root, _path, _name));
             }
             string s = o.ToString();
-            _effective = (s == _value);
+            _effective = (s == _value.ToString());
         }
     }
 }
