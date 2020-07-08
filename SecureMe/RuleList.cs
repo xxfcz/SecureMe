@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Microsoft.Win32;
 using Securit.Rules;
 
 namespace Securit
@@ -13,7 +14,7 @@ namespace Securit
 
         public RuleList()
         {
-            _rules.Add(new ScreenSaverIsSecure());
+            _rules.Add(new RegistryRule("屏保：在恢复时显示登录屏幕", Registry.CurrentUser, @"Control Panel\Desktop", "ScreenSaverIsSecure", "1"));
             _rules.Add(new IeHistoryDaysToKeep());
             _rules.Add(new NoDriveTypeAutoRun());
             _rules.Add(new RemovableStorageDevicesDenyExecute());
