@@ -24,6 +24,8 @@ namespace SecureMe
                 @"HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer!NoAutoRun", "1"));
             _rules.Add(new GroupPolicyRule("指定 Intranet Microsoft 更新服务位置",
                 @"HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate!WUServer", "http://10.160.5.20:8530"));
+            // 待测
+            _rules.Add(new GroupPolicyRule("启用自动更新", @"HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU!NoAutoUpdate", "0"));
         }
 
         IEnumerator IEnumerable.GetEnumerator()
