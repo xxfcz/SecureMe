@@ -57,10 +57,14 @@ namespace SecureMe
             object o = regKey.GetValue(_name);
             if (o == null)
             {
-                throw new Exception(string.Format(@" 不包含键：{0}\{1}\{2}", _root, _path, _name));
+                //throw new Exception(string.Format(@" 不包含键：{0}\{1}\{2}", _root, _path, _name));
+                _effective = false;
             }
-            string s = o.ToString();
-            _effective = (s == _value.ToString());
+            else
+            {
+                string s = o.ToString();
+                _effective = (s == _value.ToString());
+            }
         }
     }
 }
